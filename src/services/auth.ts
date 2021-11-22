@@ -13,5 +13,5 @@ export const login = (user: User) => {
 }
 export const getData = (idToken: string) => {
 
-	// return core.post('/auth/renew', idToken)
+	return core.post('/auth/renew', { idToken })
 }
