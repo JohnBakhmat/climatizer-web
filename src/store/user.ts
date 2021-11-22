@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getData } from '../services/auth';
+import { convertToUsername } from '../utils/username';
 const initialState: any = {
 	isLoading: false,
 	data: {}
@@ -23,6 +24,7 @@ const user = createSlice({
 	}
 });
 export const selectUser = (state: any) => state.user.data
+export const selectUserName = (state: any) => state.user?.data?.username
 export const { fetchUser, updateUser, removeUser } = user.actions;
 export default user.reducer
 export const getUserUpdateAsync = () => async (dispatch: any) => {
@@ -30,7 +32,11 @@ export const getUserUpdateAsync = () => async (dispatch: any) => {
 	const idToken = localStorage.getItem('idToken');
 	if (idToken) {
 		getData(idToken).then(r => {
-			dispatch(updateUser(r.data))
+			const data = r.data
+			dispatch(updateUser({
+				username: convertToUsername(data.email),
+				...data
+			}))
 		})
 			.catch(e => {
 				console.error(e)

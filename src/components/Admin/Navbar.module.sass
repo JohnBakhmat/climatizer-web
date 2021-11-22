@@ -1,0 +1,39 @@
+$navbarSize: 15vw
+$mainBgColor: #425C5A
+$additionalBgColor: #3d5654
+.navbar
+	height: 100vh
+	position: fixed
+	width: $navbarSize
+	background: $mainBgColor
+	border-radius: 0 50px 50px 0
+
+.navbar-header
+	border-radius: 0 50px 0 0
+	display: flex
+	flex-direction: column
+	gap: 20px
+	align-items: center
+	justify-content: center
+	height: 30%
+	background: $additionalBgColor
+.navbar-body
+	padding: 20px
+	display: flex
+	flex-direction: column
+	gap: 30px
+
+.navbar-header-image
+	$imgSize: 100px
+	border: 2px dashed #00FFF0
+	border-radius: 100%
+	width: auto
+	height: $imgSize
+	object-fit: cover
+	max-width: $imgSize
+
+.navbar-header-username
+	font-size: 24px
+	color: white
+	text-transform: uppercase
+	font-family: Roboto
