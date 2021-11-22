@@ -1,8 +1,9 @@
 import axios from 'axios'
 export default axios.create({
-	baseURL: "http://localhost:3099/",
+	baseURL: "http://192.168.0.106:3099/",
 	headers: {
 		'Content-Type': "application/json",
-		'Access-Controll-Allow-Origin': "*"
-	}
+		'Access-Control-Allow-Origin': "*"
+	},
+	timeout: 2000
 })

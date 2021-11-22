@@ -1,39 +1,42 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Input } from '../../components/Auth/Input'
+import { login } from '../../services/auth'
 import styles from './index.module.sass'
-import { ReactComponent as Tree } from '../../assets/tree.svg'
 const Auth = () => {
   const [user, setUser] = useState({ email: '', password: '' })
   useEffect(() => console.log(user), [user])
-  const handelUserChange = (data: any, id: string | number) => {
+  const handleUserChange = (data: any, id: string | number) => {
     setUser((previousState) => {
       const newState: any = { ...previousState }
       newState[id] = data
       return newState
     })
   }
-
+  const handleFormSubmit = (event: any) => {
+    event.preventDefault()
+    login(user)
+  }
   return (
     <div className={styles['wrapper']}>
       {/* <Tree className={styles['tree']} /> */}
-      <form className={styles['form']}>
+      <form className={styles['form']} onSubmit={handleFormSubmit}>
         <h1 className={styles['title']}>Authorize</h1>
         <Input
           id='email'
           label='E-mail'
           placeholder='Enter email'
           type='email'
-          onChange={handelUserChange}
+          onChange={handleUserChange}
         />
         <Input
           id='password'
           label='Password'
           placeholder='Enter password'
           type='password'
-          onChange={handelUserChange}
+          onChange={handleUserChange}
         />
 
-        <button type='button' className={styles['button']}>
+        <button type='submit' className={styles['button']}>
           Log In
         </button>
       </form>
