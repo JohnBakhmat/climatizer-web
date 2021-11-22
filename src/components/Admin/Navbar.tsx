@@ -17,10 +17,19 @@ const Navbar = () => {
         <h1 className={styles['navbar-header-username']}>{userName}</h1>
       </div>
       <div className={styles['navbar-body']}>
-        <NavbarLink />
-        <NavbarLink />
-        <NavbarLink />
-        <NavbarLink />
+        <NavbarLink
+          isActive
+          label={'Overview'}
+          icon={<i className='fas fa-home' />}
+        />
+        <NavbarLink
+          label={'Statistics'}
+          icon={<i className='fas fa-chart-pie' />}
+        />
+        <NavbarLink
+          label={'Database'}
+          icon={<i className='fas fa-database' />}
+        />
       </div>
     </div>
   )

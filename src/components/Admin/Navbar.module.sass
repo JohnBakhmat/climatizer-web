@@ -1,6 +1,8 @@
-$navbarSize: 15vw
+$navbarSize: 282px
 $mainBgColor: #425C5A
 $additionalBgColor: #3d5654
+$imgSize: 100px
+
 .navbar
 	height: 100vh
 	position: fixed
@@ -18,13 +20,12 @@ $additionalBgColor: #3d5654
 	height: 30%
 	background: $additionalBgColor
 .navbar-body
-	padding: 20px
+	padding: 30px 0px
 	display: flex
 	flex-direction: column
-	gap: 30px
+	gap: 20px
 
 .navbar-header-image
-	$imgSize: 100px
 	border: 2px dashed #00FFF0
 	border-radius: 100%
 	width: auto
@@ -37,3 +38,15 @@ $additionalBgColor: #3d5654
 	color: white
 	text-transform: uppercase
 	font-family: Roboto
+
+@media (max-width:1000px)
+	.navbar
+		width: 100px
+	.navbar-header-username
+		display: none
+	.navbar-header-image
+		height: $imgSize/2
+	.navbar-header
+		height: 10%
+	.navbar-body
+		gap: 5px
