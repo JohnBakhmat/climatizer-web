@@ -21,7 +21,7 @@ export const Input = ({
         {label}
       </label>
       <input
-        className={styles['input']}
+        className={`${styles['input']}`}
         id={id}
         onChange={(event) => onChange(event.target.value, id)}
         type={type}

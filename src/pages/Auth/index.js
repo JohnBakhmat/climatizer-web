@@ -15,7 +15,7 @@ const Auth = () => {
   return (
     <div className={styles['wrapper']}>
       <form className={styles['form']}>
-        <h1 className={styles['title']}>Login</h1>
+        <h1 className={styles['title']}>Authorize</h1>
         <Input
           id='email'
           label='E-mail'
@@ -31,7 +31,9 @@ const Auth = () => {
           onChange={handelUserChange}
         />
 
-        <button className={styles['button']}>Log In</button>
+        <button type='button' className={styles['button']}>
+          Log In
+        </button>
       </form>
     </div>
   )
