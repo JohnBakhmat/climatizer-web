@@ -1,4 +1,4 @@
-$bgColor: #425C5A
+$bgColor: #8096ac
 .wrapper
 	display: flex
 	flex-direction: row
@@ -7,19 +7,27 @@ $bgColor: #425C5A
 	background: $bgColor
 	justify-content: center
 	align-items: center
-
 .form
-	box-shadow: 60px -16px #4c7e7a
+	box-shadow: 50px -16px #3a5754
+	border: 1px solid #555
 	background: #fff
-	padding: 20px
+	padding: 20px 5px
 	border-radius: 20px
 	display: flex
 	flex-direction: column
-	gap: 15px
+	gap: 45px
 	max-width: 30vw
 	width: 100%
 	justify-content: space-evenly
+@media (max-width:1000px)
+	.form
+		max-width: 60vw
 
+@media (max-width:600px)
+	.form
+		box-shadow: 20px -16px #3a5754
+		min-width: 350px
+		max-width: 90vw
 .title
 	align-self: center
 	margin: 0
@@ -39,3 +47,9 @@ $bgColor: #425C5A
 	transition: all 200ms ease-in-out
 .button:hover
 	background: #425C5A
+.tree
+	position: absolute
+	bottom: 0px
+	left: 0
+	width: 30vw
+	display: block

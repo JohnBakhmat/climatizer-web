@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Input } from '../../components/Auth/Input'
 import styles from './index.module.sass'
+import { ReactComponent as Tree } from '../../assets/tree.svg'
 const Auth = () => {
   const [user, setUser] = useState({ email: '', password: '' })
   useEffect(() => console.log(user), [user])
@@ -14,6 +15,7 @@ const Auth = () => {
 
   return (
     <div className={styles['wrapper']}>
+      {/* <Tree className={styles['tree']} /> */}
       <form className={styles['form']}>
         <h1 className={styles['title']}>Authorize</h1>
         <Input
