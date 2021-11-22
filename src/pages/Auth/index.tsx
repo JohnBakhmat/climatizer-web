@@ -5,9 +5,9 @@ import { ReactComponent as Tree } from '../../assets/tree.svg'
 const Auth = () => {
   const [user, setUser] = useState({ email: '', password: '' })
   useEffect(() => console.log(user), [user])
-  const handelUserChange = (data, id) => {
+  const handelUserChange = (data: any, id: string | number) => {
     setUser((previousState) => {
-      const newState = { ...previousState }
+      const newState: any = { ...previousState }
       newState[id] = data
       return newState
     })
