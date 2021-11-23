@@ -1,11 +1,11 @@
 import styles from './index.module.sass'
 
 export type InputProps = {
-  label: string
-  id: string
-  placeholder: string
-  type: string
-  onChange: any
+  label?: string
+  id?: string
+  placeholder?: string
+  type?: string
+  onChange?: any
 }
 
 export const Input = ({
