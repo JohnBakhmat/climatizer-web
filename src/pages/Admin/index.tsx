@@ -1,12 +1,18 @@
-import Card from '../../components/Admin/Card'
+import Card, { CardType } from '../../components/Admin/Card'
 import styles from './index.module.sass'
+import AccessImg from '../../assets/Access.png'
+import BuildingImg from '../../assets/Building.png'
+
 const Admin = () => {
+  const card = [
+    new CardType(AccessImg, 'Access', '/admin/access'),
+    new CardType(BuildingImg, 'Buildings', '/admin/building'),
+  ]
   return (
     <div className={styles['wrapper']}>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {card.map((card) => (
+        <Card label={card.label} img={card.img} to={card.to} />
+      ))}
     </div>
   )
 }
