@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getData } from '../services/auth';
+import { errorToast, successToast } from '../services/toasts';
 import { convertToUsername } from '../utils/username';
 const initialState: any = {
 	isLoading: false,
@@ -33,13 +34,17 @@ export const getUserUpdateAsync = () => async (dispatch: any) => {
 	if (idToken) {
 		getData(idToken).then(r => {
 			const data = r.data
+			const username = convertToUsername(data.email)
 			dispatch(updateUser({
-				username: convertToUsername(data.email),
+				username,
 				...data
 			}))
+
+			successToast(`Hello, ${username}`)
 		})
 			.catch(e => {
 				console.error(e)
+				errorToast(`Sorry,${e}`)
 			})
 	} else {
 		dispatch(removeUser());

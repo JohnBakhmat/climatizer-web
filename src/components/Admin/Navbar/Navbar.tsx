@@ -1,7 +1,7 @@
 import styles from './Navbar.module.sass'
 import NavbarLink from './NavbarLink'
-import { selectUserName } from '../../store/user'
-import store from '../../store'
+import { selectUserName } from '../../../store/user'
+import store from '../../../store'
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {

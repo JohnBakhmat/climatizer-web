@@ -4,7 +4,7 @@ import Auth from './pages/Auth/'
 import { selectUser } from './store/user'
 import PrivateRoute from './PrivateRoute'
 import Admin from './pages/Admin'
-import Navbar from './components/Admin/Navbar'
+import Navbar from './components/Admin/Navbar/Navbar'
 
 function App() {
   return (

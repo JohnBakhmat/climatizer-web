@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Input } from '../../components/Auth/Input'
 import { login } from '../../services/auth'
 import styles from './index.module.sass'
 const Auth = () => {
   const [user, setUser] = useState({ email: '', password: '' })
+  const navigate = useNavigate()
   useEffect(() => console.log(user), [user])
   const handleUserChange = (data: any, id: string | number) => {
     setUser((previousState) => {
@@ -15,6 +17,7 @@ const Auth = () => {
   const handleFormSubmit = (event: any) => {
     event.preventDefault()
     login(user)
+    navigate('/admin')
   }
   return (
     <div className={styles['wrapper']}>
