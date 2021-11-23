@@ -40,7 +40,7 @@ export const getUserUpdateAsync = () => async (dispatch: any) => {
 				...data
 			}))
 
-			successToast(`Hello, ${username}`)
+			successToast(`Hello, ${username}`, 1000)
 		})
 			.catch(e => {
 				console.error(e)
