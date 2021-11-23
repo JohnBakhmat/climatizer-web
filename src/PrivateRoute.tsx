@@ -7,7 +7,7 @@ const PrivateRoute = ({ children, ...rest }: any) => {
     store.dispatch(getUserAsync())
   }, [])
   return (
-    <div>
+    <div style={{ marginLeft: '282px', padding: '20px' }}>
       {localStorage.getItem('idToken') ? children : <Navigate to='/' />}
     </div>
   )

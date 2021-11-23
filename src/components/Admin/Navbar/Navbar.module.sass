@@ -26,12 +26,30 @@ $imgSize: 100px
 	gap: 20px
 
 .navbar-header-image
-	border: 2px dashed #00FFF0
 	border-radius: 100%
 	width: auto
-	height: $imgSize
 	object-fit: cover
+.circle
+	width: auto
+	height: $imgSize
 	max-width: $imgSize
+	position: relative
+.border
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	background: transparent
+	border-radius: 50%
+	border: 2px dashed #00FFF0
+	animation: Rotate 20s linear 0s infinite
+@keyframes Rotate
+	from
+		transform: rotate(0deg)
+
+	to
+		transform: rotate(360deg)
 
 .navbar-header-username
 	font-size: 24px

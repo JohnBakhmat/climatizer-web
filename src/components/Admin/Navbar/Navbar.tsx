@@ -13,11 +13,14 @@ const Navbar = () => {
   return (
     <div className={styles['navbar']} hidden={!isShown}>
       <div className={styles['navbar-header']}>
-        <img
-          className={styles['navbar-header-image']}
-          src={'https://i.imgur.com/7igNXJ5.jpeg'}
-          alt='user-avatar'
-        />
+        <div className={styles['circle']}>
+          <div className={styles['border']} />
+          <img
+            className={styles['navbar-header-image']}
+            src={'https://i.imgur.com/7igNXJ5.jpeg'}
+            alt='user-avatar'
+          />
+        </div>
         <h1 className={styles['navbar-header-username']}>{userName}</h1>
       </div>
       <div className={styles['navbar-body']}>

@@ -1,6 +1,6 @@
 import styles from './style.module.sass'
 const Create = () => {
-  return <div></div>
+  return <div>Create</div>
 }
 
 export default Create
