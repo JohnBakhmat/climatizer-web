@@ -8,6 +8,9 @@ export type InputProps = {
   onChange?: any
   value?: any
   isDisabled?: boolean
+  regex?: RegExp
+  isValid?: boolean
+  validationMessange?: string
 }
 
 export const Input = ({
@@ -18,6 +21,8 @@ export const Input = ({
   onChange,
   value,
   isDisabled = false,
+  isValid = true,
+  validationMessange = 'Field is invalid',
 }: InputProps) => {
   return (
     <div className={styles['wrapper']}>
@@ -34,6 +39,9 @@ export const Input = ({
         type={type}
         placeholder={placeholder}
       />
+      {!isValid && (
+        <span className={styles['validation']}>{validationMessange}</span>
+      )}
     </div>
   )
 }

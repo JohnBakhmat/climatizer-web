@@ -14,8 +14,8 @@ export const Checkbox = ({ value, onChange, label }: PropTypes) => {
         id='check'
         className='form-checkbox rounded-lg w-1/2 h-10 self-center text-green-500 bg-red-300 border-0'
         type='checkbox'
-        checked={value}
-        onChange={onChange}
+        defaultChecked={value}
+        onChange={(event) => onChange(event.target.checked)}
       />
     </div>
   )

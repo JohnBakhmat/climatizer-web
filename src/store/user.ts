@@ -29,7 +29,6 @@ export const selectUserName = (state: any) => state.user?.data?.username
 export const { fetchUser, updateUser, removeUser } = user.actions;
 export default user.reducer
 export const getUserUpdateAsync = () => async (dispatch: any) => {
-	console.log(1231231)
 	const idToken = localStorage.getItem('idToken');
 	if (idToken) {
 		getData(idToken).then(r => {

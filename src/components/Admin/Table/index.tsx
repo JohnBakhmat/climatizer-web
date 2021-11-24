@@ -24,7 +24,6 @@ const Table = (props: any) => {
 
   const handleButtonClick = (object: Object, modal: ModalTypes) => {
     props.onSelect(object, modal)
-    console.log(object)
   }
 
   const getRowsData = () => {
