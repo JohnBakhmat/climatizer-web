@@ -20,12 +20,25 @@ const Access = () => {
     setCurrentModal(modal)
     setSelectedRow(row)
   }
+
+  const handleCloseModal = () => {
+    setCurrentModal(ModalTypes.none)
+    setSelectedRow({})
+  }
   return (
     <div>
-      <button onClick={() => setCurrentModal(ModalTypes.Create)}>Create</button>
-      {currentModal !== ModalTypes.none && (
-        <Modal>{getModal(currentModal, selectedRow)}</Modal>
-      )}
+      <div className={styles['create']}>
+        <button onClick={() => setCurrentModal(ModalTypes.Create)}>
+          Create
+        </button>
+      </div>
+
+      <Modal
+        isOpen={currentModal !== ModalTypes.none}
+        onCloseModal={handleCloseModal}
+      >
+        {getModal(currentModal, selectedRow)}
+      </Modal>
       {data.length && <Table data={data} onSelect={handleRowSelect} />}
     </div>
   )
@@ -43,7 +56,7 @@ const getModal = (type: ModalTypes, data: any) => {
       return <Delete data={data} />
     }
     default:
-      return
+      return <></>
   }
 }
 export default Access

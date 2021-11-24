@@ -26,7 +26,9 @@ const Form = (props: Props) => {
       {Object.entries(dataState).map((item: Array<any>) =>
         convertDataToJSX(item, props.modal, dispatch)
       )}
-      <button type='submit'>Submit</button>
+      <button className={styles['button-submit']} type='submit'>
+        Submit
+      </button>
     </form>
   )
 }
