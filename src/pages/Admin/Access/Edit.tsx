@@ -1,4 +1,5 @@
 import Form from '../../../components/Admin/Form'
+import { ModalTypes } from '../ModalTypes'
 import styles from './style.module.sass'
 
 type PropTypes = {
@@ -7,7 +8,7 @@ type PropTypes = {
 const Edit = (props: PropTypes) => {
   return (
     <div className={styles['edit']}>
-      <Form data={props.data} />
+      <Form data={props.data} modal={ModalTypes.Edit} title={'Edit'} />
     </div>
   )
 }
