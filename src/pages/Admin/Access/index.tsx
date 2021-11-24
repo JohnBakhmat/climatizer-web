@@ -22,6 +22,7 @@ const Access = () => {
   }
   return (
     <div>
+      <button onClick={() => setCurrentModal(ModalTypes.Create)}>Create</button>
       {currentModal !== ModalTypes.none && (
         <Modal>{getModal(currentModal, selectedRow)}</Modal>
       )}
@@ -39,7 +40,7 @@ const getModal = (type: ModalTypes, data: any) => {
       return <Edit data={data} />
     }
     case ModalTypes.Delete: {
-      return <Delete />
+      return <Delete data={data} />
     }
     default:
       return
