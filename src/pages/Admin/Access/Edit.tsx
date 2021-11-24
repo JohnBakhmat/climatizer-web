@@ -1,11 +1,14 @@
-import { Input } from '../../../components/Auth/Input'
+import Form from '../../../components/Admin/Form'
 import styles from './style.module.sass'
-const Edit = () => {
+
+type PropTypes = {
+  data?: any
+}
+const Edit = (props: PropTypes) => {
   return (
-    <form className={styles['edit']}>
-      <h1 className={styles['title']}>Edit</h1>
-      <label>_ID</label>
-    </form>
+    <div className={styles['edit']}>
+      <Form data={props.data} />
+    </div>
   )
 }
 

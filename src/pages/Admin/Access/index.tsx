@@ -9,30 +9,34 @@ import Delete from './Delete'
 import Create from './Create'
 const Access = () => {
   const [data, setData] = useState([])
-  const [currentModal, setCurrentModal] = useState(ModalTypes.Edit)
+  const [selectedRow, setSelectedRow] = useState({})
+  const [currentModal, setCurrentModal] = useState(ModalTypes.none)
   useEffect(() => {
     accessService.get((respData: any) => {
       setData((prev) => respData.data)
     })
   }, [])
-
+  const handleRowSelect = (row: any, modal: ModalTypes) => {
+    setCurrentModal(modal)
+    setSelectedRow(row)
+  }
   return (
     <div>
       {currentModal !== ModalTypes.none && (
-        <Modal>{getModal(currentModal)}</Modal>
+        <Modal>{getModal(currentModal, selectedRow)}</Modal>
       )}
-      {data.length && <Table data={data} />}
+      {data.length && <Table data={data} onSelect={handleRowSelect} />}
     </div>
   )
 }
 
-const getModal = (type: ModalTypes) => {
+const getModal = (type: ModalTypes, data: any) => {
   switch (type) {
     case ModalTypes.Create: {
       return <Create />
     }
     case ModalTypes.Edit: {
-      return <Edit />
+      return <Edit data={data} />
     }
     case ModalTypes.Delete: {
       return <Delete />

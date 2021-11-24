@@ -1,10 +1,6 @@
 import React from 'react'
+import { ModalTypes } from '../../../pages/Admin/ModalTypes'
 import styles from './index.module.sass'
-
-enum Actions {
-  Edit,
-  Delete,
-}
 function stringify(data: any): any {
   if (/true/i.test(data))
     return <i className='fas fa-check-square text-green-600 text-4xl' />
@@ -26,7 +22,8 @@ const Table = (props: any) => {
   const getHeader = () =>
     getKeys().map((key, index) => <th key={key}>{key.toUpperCase()}</th>)
 
-  const handleButtonClick = (object: Object, action: Actions) => {
+  const handleButtonClick = (object: Object, modal: ModalTypes) => {
+    props.onSelect(object, modal)
     console.log(object)
   }
 
@@ -38,13 +35,13 @@ const Table = (props: any) => {
         <RenderRow key={index} data={row} keys={keys} />
         <td style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
           <button
-            onClick={() => handleButtonClick(row, Actions.Edit)}
+            onClick={() => handleButtonClick(row, ModalTypes.Edit)}
             className={`${styles['button']} ${styles['edit']}`}
           >
             Edit
           </button>
           <button
-            onClick={() => handleButtonClick(row, Actions.Delete)}
+            onClick={() => handleButtonClick(row, ModalTypes.Delete)}
             className={`${styles['button']} ${styles['delete']}`}
           >
             Delete
