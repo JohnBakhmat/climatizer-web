@@ -6,11 +6,15 @@ import PrivateRoute from './PrivateRoute'
 import Admin from './pages/Admin'
 import Statistics from './pages/Admin/Statistics'
 import Navbar from './components/Admin/Navbar/Navbar'
-import Create from './pages/Admin/Access/Create'
 import Access from './pages/Admin/Access'
-import Edit from './pages/Admin/Access/Edit'
-import Delete from './pages/Admin/Access/Delete'
+import AccessCreate from './pages/Admin/Access/Create'
+import AccessEdit from './pages/Admin/Access/Edit'
+import AccessDelete from './pages/Admin/Access/Delete'
 
+import Building from './pages/Admin/Buildings'
+import BuildingCreate from './pages/Admin/Buildings/Create'
+import BuildingEdit from './pages/Admin/Buildings/Edit'
+import BuildingDelete from './pages/Admin/Buildings/Delete'
 function App() {
   return (
     <>
@@ -47,7 +51,7 @@ function App() {
               path='create'
               element={
                 <PrivateRoute>
-                  <Create />
+                  <AccessCreate />
                 </PrivateRoute>
               }
             />
@@ -55,7 +59,7 @@ function App() {
               path='edit'
               element={
                 <PrivateRoute>
-                  <Edit />
+                  <AccessEdit />
                 </PrivateRoute>
               }
             />
@@ -63,7 +67,41 @@ function App() {
               path='delete'
               element={
                 <PrivateRoute>
-                  <Delete />
+                  <AccessDelete />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+          <Route path='building/'>
+            <Route
+              index
+              element={
+                <PrivateRoute>
+                  <Building />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='create'
+              element={
+                <PrivateRoute>
+                  <BuildingCreate />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='edit'
+              element={
+                <PrivateRoute>
+                  <BuildingEdit />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='delete'
+              element={
+                <PrivateRoute>
+                  <BuildingDelete />
                 </PrivateRoute>
               }
             />
