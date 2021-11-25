@@ -2,7 +2,7 @@ import { toast } from 'react-toastify'
 
 export const successToast = (text: string, timeout: number = 5000) => {
 	toast.success(text, {
-		position: "top-center",
+		position: "top-right",
 		autoClose: timeout,
 		hideProgressBar: false,
 		closeOnClick: true,
