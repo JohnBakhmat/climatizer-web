@@ -6,6 +6,11 @@ function stringify(data: any): any {
     return <i className='fas fa-check-square text-green-600 text-4xl' />
   else if (/false/i.test(data))
     return <i className='fas fa-minus-square text-red-600 text-4xl' />
+  else if (Array.isArray(data)) return data.join(', ')
+  else if (/Completed/.test(data))
+    return <p className='text-green-600'>{data}</p>
+  else if (/In Progress/.test(data))
+    return <p className='text-red-600'>{data}</p>
   return data
 }
 
@@ -32,20 +37,22 @@ const Table = (props: any) => {
     return items.map((row: any, index: number) => (
       <tr className={styles['tr-body']} key={index}>
         <RenderRow key={index} data={row} keys={keys} />
-        <td style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-          <button
-            onClick={() => handleButtonClick(row, ModalTypes.Edit)}
-            className={`${styles['button']} ${styles['edit']}`}
-          >
-            Edit
-          </button>
-          <button
-            onClick={() => handleButtonClick(row, ModalTypes.Delete)}
-            className={`${styles['button']} ${styles['delete']}`}
-          >
-            Delete
-          </button>
-        </td>
+        {!props.readOnly && (
+          <td style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <button
+              onClick={() => handleButtonClick(row, ModalTypes.Edit)}
+              className={`${styles['button']} ${styles['edit']}`}
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => handleButtonClick(row, ModalTypes.Delete)}
+              className={`${styles['button']} ${styles['delete']}`}
+            >
+              Delete
+            </button>
+          </td>
+        )}
       </tr>
     ))
   }
@@ -55,7 +62,7 @@ const Table = (props: any) => {
         <thead className={styles['thead']}>
           <tr className={styles['tr-head']}>
             {getHeader()}
-            <th>Actions</th>
+            {!props.readOnly && <th>Actions</th>}
           </tr>
         </thead>
         <tbody className={styles['tbody']}>{getRowsData()}</tbody>

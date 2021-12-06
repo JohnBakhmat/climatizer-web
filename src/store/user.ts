@@ -24,7 +24,7 @@ const user = createSlice({
 		}),
 	}
 });
-export const selectUser = (state: any) => state.user.data
+export const selectUser = (state: any) => state.user?.data
 export const selectUserName = (state: any) => state.user?.data?.username
 export const { fetchUser, updateUser, removeUser } = user.actions;
 export default user.reducer

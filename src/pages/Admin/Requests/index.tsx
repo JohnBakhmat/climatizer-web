@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './style.module.sass'
-import * as accessService from '../../../services/Admin/access'
+import * as accessService from '../../../services/Admin/request'
 import Table from '../../../components/Admin/Table'
 import Modal from '../../../components/Modal'
 import Edit from './Edit'
@@ -11,13 +11,11 @@ const Access = () => {
   const [data, setData] = useState([])
   const [selectedRow, setSelectedRow] = useState({})
   const [currentModal, setCurrentModal] = useState(ModalTypes.none)
-  const getData = useCallback(() => {
+  useEffect(() => {
     accessService.get((respData: any) => {
       setData((prev) => respData.data)
     })
   }, [])
-
-  useEffect(getData, [getData])
   const handleRowSelect = (row: any, modal: ModalTypes) => {
     setCurrentModal(modal)
     setSelectedRow(row)
@@ -26,9 +24,7 @@ const Access = () => {
   const handleCloseModal = () => {
     setCurrentModal(ModalTypes.none)
     setSelectedRow({})
-    getData()
   }
-
   return (
     <div>
       <div className={styles['create']}>
@@ -41,23 +37,23 @@ const Access = () => {
         isOpen={currentModal !== ModalTypes.none}
         onCloseModal={handleCloseModal}
       >
-        {getModal(currentModal, selectedRow, handleCloseModal)}
+        {getModal(currentModal, selectedRow)}
       </Modal>
       {data.length && <Table data={data} onSelect={handleRowSelect} />}
     </div>
   )
 }
 
-const getModal = (type: ModalTypes, data: any, handleCloseModal: any) => {
+const getModal = (type: ModalTypes, data: any) => {
   switch (type) {
     case ModalTypes.Create: {
-      return <Create onSubmit={handleCloseModal} />
+      return <Create />
     }
     case ModalTypes.Edit: {
-      return <Edit onSubmit={handleCloseModal} data={data} />
+      return <Edit data={data} />
     }
     case ModalTypes.Delete: {
-      return <Delete onSubmit={handleCloseModal} data={data} />
+      return <Delete data={data} />
     }
     default:
       return <></>

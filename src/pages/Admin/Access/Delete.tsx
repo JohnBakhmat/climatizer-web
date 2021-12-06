@@ -6,12 +6,14 @@ import styles from './style.module.sass'
 
 type PropTypes = {
   data?: any
+  onSubmit?: any
 }
 const Delete = (props: PropTypes) => {
   const handelSubmit = (data: any) => {
     accessDelete(data, (response: any) => {
       console.log(response)
     })
+    props.onSubmit && props.onSubmit()
   }
 
   return (

@@ -1,24 +1,23 @@
 import styles from './style.module.sass'
 import { ModalTypes } from '../ModalTypes'
-import { post } from '../../../services/Admin/access'
+import { post } from '../../../services/Admin/request'
 
 import Form from '../../../components/Admin/Form'
-class Access {
-  user: string = ''
-  room: string = ''
-  isAllowed: boolean = false
+class Request {
+  presetId: string = ''
+  userId: string = '61825a5c6ffc72b4f67d4882'
+  roomId: string = ''
 }
-const Create = (props: any) => {
+const Create = () => {
   const handelSubmit = (data: any) => {
     post(data, (response: any) => {
       console.log(response)
     })
-    props.onSubmit && props.onSubmit()
   }
   return (
     <div className={styles['edit']}>
       <Form
-        data={new Access()}
+        data={new Request()}
         modal={ModalTypes.Create}
         title={'Create'}
         onSubmit={handelSubmit}

@@ -15,6 +15,9 @@ import Building from './pages/Admin/Buildings'
 import BuildingCreate from './pages/Admin/Buildings/Create'
 import BuildingEdit from './pages/Admin/Buildings/Edit'
 import BuildingDelete from './pages/Admin/Buildings/Delete'
+
+import Request from './pages/Admin/Requests'
+
 function App() {
   return (
     <>
@@ -68,6 +71,17 @@ function App() {
               element={
                 <PrivateRoute>
                   <AccessDelete />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+
+          <Route path='request'>
+            <Route
+              index
+              element={
+                <PrivateRoute>
+                  <Request />
                 </PrivateRoute>
               }
             />
