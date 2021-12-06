@@ -1,7 +1,40 @@
+import { useEffect, useState } from 'react'
+import { PieController } from 'chart.js'
 import styles from './index.module.sass'
-
+import {
+  getDevices,
+  getActions,
+  getLogins,
+} from '../../../services/Admin/statistics'
+import PieChart from './PieChart'
+import BarChart from './BarChart'
+import LineChart from './LineChart'
 const Statistics = () => {
-  return <div className={styles['wrapper']}>12342314</div>
+  const [deviceChartData, setDeviceChartData] = useState([])
+  const [loginsChartDate, setLoginsChartDate] = useState([])
+  const [actionsChartDate, setActionsChartDate] = useState([])
+
+  useEffect(() => {
+    getDevices((data: any) => {
+      setDeviceChartData((prev) => data)
+    })
+    getActions((data: any) => {
+      setActionsChartDate((prev) => data)
+    })
+    getLogins((data: any) => {
+      setLoginsChartDate((prev) => data)
+    })
+  }, [])
+
+  return (
+    <div className={styles['wrapper']}>
+      <div className={styles['row']}>
+        <PieChart data={deviceChartData} />
+        <BarChart data={loginsChartDate} title='Logins per hour' />
+      </div>
+      <LineChart data={actionsChartDate} title='Actions per day' />
+    </div>
+  )
 }
 
 export default Statistics
