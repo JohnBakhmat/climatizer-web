@@ -48,6 +48,7 @@ const convertDataToJSX = (
       <Checkbox
         value={value}
         label={key}
+        isDisabled={isDisabled}
         onChange={(value: any) => dispatch({ key, value })}
       />
     )
