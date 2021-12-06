@@ -3,6 +3,7 @@ import { ModalTypes } from '../ModalTypes'
 import { post } from '../../../services/Admin/access'
 
 import Form from '../../../components/Admin/Form'
+import Building from '../../../models/Building'
 
 const Create = () => {
   const handelSubmit = (data: any) => {
@@ -13,7 +14,7 @@ const Create = () => {
   return (
     <div className={styles['edit']}>
       <Form
-        data={{}}
+        data={new Building()}
         modal={ModalTypes.Create}
         title={'Create'}
         onSubmit={handelSubmit}
