@@ -1,0 +1,31 @@
+.wrapper
+	display: flex
+
+	ul
+		width: 100%
+		display: flex
+		flex-direction: column
+		gap: 3px
+	li
+
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		font-size: 20px
+		border-radius: 2px
+		border: 2px solid #00411022
+		padding: 20px
+		width: 100%
+
+		&:nth-child(2n-1)
+			background: #15624F40
+		&:hover
+			border: 2px solid #15624F
+
+		button
+			cursor: pointer
+			border: 1px solid #15624F
+			background: #15624F
+			padding: 5px 10px
+			border-radius: 5px
+			color: white

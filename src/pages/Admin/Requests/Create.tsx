@@ -4,9 +4,9 @@ import { post } from '../../../services/Admin/request'
 
 import Form from '../../../components/Admin/Form'
 class Request {
-  presetId: string = ''
+  presetId: string = '61825a5c6ffc72b4f67d4882'
   userId: string = '61825a5c6ffc72b4f67d4882'
-  roomId: string = ''
+  roomId: string = '61825a5c6ffc72b4f67d4882'
 }
 const Create = () => {
   const handelSubmit = (data: any) => {

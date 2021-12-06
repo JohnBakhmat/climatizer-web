@@ -5,10 +5,11 @@ import store from '../store'
 import { loginUserAsync } from '../store/user'
 import { errorToast } from './toasts'
 
-export const login = (user: User) => {
+export const login = (user: User, callback?: Function) => {
 	core.post('/auth/login', user).then((resp) => {
 		localStorage.setItem('idToken', resp.data.idToken)
-		store.dispatch(loginUserAsync(resp.data))
+		// store.dispatch(loginUserAsync(resp.data))
+		callback && callback()
 	}).catch(e => {
 		errorToast(`Sorry! Couldn't connect to server!`)
 	})

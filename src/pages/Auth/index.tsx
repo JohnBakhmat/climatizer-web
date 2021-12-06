@@ -16,8 +16,7 @@ const Auth = () => {
   }
   const handleFormSubmit = (event: any) => {
     event.preventDefault()
-    login(user)
-    navigate('/admin')
+    login(user, () => navigate('/admin'))
   }
   return (
     <div className={styles['wrapper']}>

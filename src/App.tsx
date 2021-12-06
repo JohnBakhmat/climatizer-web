@@ -17,6 +17,7 @@ import BuildingEdit from './pages/Admin/Buildings/Edit'
 import BuildingDelete from './pages/Admin/Buildings/Delete'
 
 import Request from './pages/Admin/Requests'
+import Database from './pages/Admin/Database'
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Statistics />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='database'
+            element={
+              <PrivateRoute>
+                <Database />
               </PrivateRoute>
             }
           />

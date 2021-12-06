@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './style.module.sass'
-import * as accessService from '../../../services/Admin/request'
+import * as requestService from '../../../services/Admin/request'
 import Table from '../../../components/Admin/Table'
 import Modal from '../../../components/Modal'
 import Edit from './Edit'
@@ -12,7 +12,7 @@ const Access = () => {
   const [selectedRow, setSelectedRow] = useState({})
   const [currentModal, setCurrentModal] = useState(ModalTypes.none)
   useEffect(() => {
-    accessService.get((respData: any) => {
+    requestService.get((respData: any) => {
       setData((prev) => respData.data)
     })
   }, [])
