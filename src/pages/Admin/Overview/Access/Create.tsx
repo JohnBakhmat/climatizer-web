@@ -1,8 +1,8 @@
 import styles from './style.module.sass'
-import { ModalTypes } from '../ModalTypes'
-import { post } from '../../../services/Admin/access'
+import { ModalTypes } from '../../ModalTypes'
+import { post } from '../../../../services/Admin/access'
 
-import Form from '../../../components/Admin/Form'
+import Form from '../../../../components/Admin/Form'
 class Access {
   user: string = ''
   room: string = ''

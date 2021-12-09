@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import styles from './style.module.sass'
-import * as requestService from '../../../services/Admin/request'
-import Table from '../../../components/Admin/Table'
-import Modal from '../../../components/Modal'
+import * as buildingService from '../../../../services/Admin/building'
+import Table from '../../../../components/Admin/Table'
+import Modal from '../../../../components/Modal'
 import Edit from './Edit'
-import { ModalTypes } from '../ModalTypes'
+import { ModalTypes } from '../../ModalTypes'
 import Delete from './Delete'
 import Create from './Create'
 const Access = () => {
@@ -12,7 +12,7 @@ const Access = () => {
   const [selectedRow, setSelectedRow] = useState({})
   const [currentModal, setCurrentModal] = useState(ModalTypes.none)
   useEffect(() => {
-    requestService.get((respData: any) => {
+    buildingService.buildingGet((respData: any) => {
       setData((prev) => respData.data)
     })
   }, [])
