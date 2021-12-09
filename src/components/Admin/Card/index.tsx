@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from './index.module.sass'
 export class CardType {
+  className: any
   img?: string
   label?: string
   id?: any
@@ -13,12 +14,13 @@ export class CardType {
   }
 }
 const Card = ({
+  className,
   label = 'asdf',
   img = 'https://ru.powerthesaurus.org/_images/terms/dummy-synonyms-2.png',
   to = '/',
 }: CardType) => {
   return (
-    <Link to={to} className={styles['wrap']}>
+    <Link to={to} className={`${styles['wrap']} ${className}`}>
       <img src={img} alt='card-icon' className={styles['image']} />
       <h1 className={styles['label']}>{label}</h1>
     </Link>
