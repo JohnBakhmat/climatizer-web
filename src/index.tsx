@@ -34,7 +34,7 @@ import {
   Tooltip,
   SubTitle,
 } from 'chart.js'
-
+Chart.defaults.font.size = 18
 Chart.register(
   ArcElement,
   LineElement,

@@ -28,10 +28,8 @@ const Statistics = () => {
 
   return (
     <div className={styles['wrapper']}>
-      <div className={styles['row']}>
-        <PieChart data={deviceChartData} />
-        <BarChart data={loginsChartDate} title='Logins per hour' />
-      </div>
+      <PieChart data={deviceChartData} />
+      <BarChart data={loginsChartDate} title='Logins per hour' />
       <LineChart data={actionsChartDate} title='Actions per day' />
     </div>
   )

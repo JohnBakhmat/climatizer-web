@@ -29,7 +29,7 @@ const PieChart = (props: Props) => {
     ],
   }
   return (
-    <div style={{ maxWidth: '30%' }}>
+    <div>
       <Doughnut data={data} />
     </div>
   )
