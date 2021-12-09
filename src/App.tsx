@@ -1,23 +1,20 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Auth from './pages/Auth/'
-import { selectUser } from './store/user'
 import PrivateRoute from './PrivateRoute'
 import Admin from './pages/Admin'
-import Statistics from './pages/Admin/Statistics'
 import Navbar from './components/Admin/Navbar/Navbar'
-import Access from './pages/Admin/Overview/Access'
-import AccessCreate from './pages/Admin/Overview/Access/Create'
-import AccessEdit from './pages/Admin/Overview/Access/Edit'
-import AccessDelete from './pages/Admin/Overview/Access/Delete'
 
-import Building from './pages/Admin/Overview/Buildings'
-import BuildingCreate from './pages/Admin/Overview/Buildings/Create'
-import BuildingEdit from './pages/Admin/Overview/Buildings/Edit'
-import BuildingDelete from './pages/Admin/Overview/Buildings/Delete'
-
-import Request from './pages/Admin/Overview/Requests'
 import Database from './pages/Admin/Database'
+import Statistics from './pages/Admin/Statistics'
+
+import Access from './pages/Admin/Overview/Access'
+import Building from './pages/Admin/Overview/Buildings'
+import Device from './pages/Admin/Overview/Devices'
+import Request from './pages/Admin/Overview/Requests'
+import Preset from './pages/Admin/Overview/Presets'
+import ClimateSettings from './pages/Admin/Overview/ClimateSettings'
+import Rooms from './pages/Admin/Overview/Rooms'
 
 function App() {
   return (
@@ -59,76 +56,57 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
-              path='create'
-              element={
-                <PrivateRoute>
-                  <AccessCreate />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='edit'
-              element={
-                <PrivateRoute>
-                  <AccessEdit />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='delete'
-              element={
-                <PrivateRoute>
-                  <AccessDelete />
-                </PrivateRoute>
-              }
-            />
           </Route>
 
-          <Route path='request'>
-            <Route
-              index
-              element={
-                <PrivateRoute>
-                  <Request />
-                </PrivateRoute>
-              }
-            />
-          </Route>
-          <Route path='building/'>
-            <Route
-              index
-              element={
-                <PrivateRoute>
-                  <Building />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='create'
-              element={
-                <PrivateRoute>
-                  <BuildingCreate />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='edit'
-              element={
-                <PrivateRoute>
-                  <BuildingEdit />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path='delete'
-              element={
-                <PrivateRoute>
-                  <BuildingDelete />
-                </PrivateRoute>
-              }
-            />
-          </Route>
+          <Route
+            path='request'
+            element={
+              <PrivateRoute>
+                <Request />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='building/'
+            element={
+              <PrivateRoute>
+                <Building />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path='device/'
+            element={
+              <PrivateRoute>
+                <Device />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='climate-settings/'
+            element={
+              <PrivateRoute>
+                <ClimateSettings />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='presets/'
+            element={
+              <PrivateRoute>
+                <Preset />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='rooms/'
+            element={
+              <PrivateRoute>
+                <Rooms />
+              </PrivateRoute>
+            }
+          />
           <Route path='1' element={<PrivateRoute>13123</PrivateRoute>} />
         </Route>
       </Routes>

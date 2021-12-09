@@ -20,7 +20,7 @@ const Admin = () => {
       '/admin/climate-settings'
     ),
     new CardType(PresetImg, 'Presets', '/admin/presets'),
-    new CardType(RoomImg, 'Rooms', '/admin/device'),
+    new CardType(RoomImg, 'Rooms', '/admin/rooms'),
   ]
   return (
     <div className={styles['wrapper']}>
