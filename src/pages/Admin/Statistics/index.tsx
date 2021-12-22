@@ -6,9 +6,9 @@ import {
   getActions,
   getLogins,
 } from '../../../services/Admin/statistics'
-import PieChart from './PieChart'
-import BarChart from './BarChart'
-import LineChart from './LineChart'
+import PieChart from '../../../components/Admin/Charts/PieChart'
+import BarChart from '../../../components/Admin/Charts/BarChart'
+import LineChart from '../../../components/Admin/Charts/LineChart'
 const Statistics = () => {
   const [deviceChartData, setDeviceChartData] = useState([])
   const [loginsChartDate, setLoginsChartDate] = useState([])

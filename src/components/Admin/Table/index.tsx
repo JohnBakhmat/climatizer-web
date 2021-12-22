@@ -11,14 +11,12 @@ function stringify(data: any): any {
     return <p className='text-green-600'>{data}</p>
   else if (/In Progress/.test(data))
     return <p className='text-red-600'>{data}</p>
-  return data
+  return <p className={`truncate text-ellipsis`}>{data}</p>
 }
 
 const RenderRow = (props: any) =>
   props.keys.map((key: any, index: any) => (
-    <td className={styles['td']} key={props.data[key]}>
-      {stringify(props.data[key])}
-    </td>
+    <td key={props.data[key]}>{stringify(props.data[key])}</td>
   ))
 
 const Table = (props: any) => {
