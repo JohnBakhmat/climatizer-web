@@ -7,6 +7,8 @@ import Edit from './Edit'
 import { ModalTypes } from '../../ModalTypes'
 import Delete from './Delete'
 import Create from './Create'
+import { useSelector } from 'react-redux'
+import { selectLanguagePack } from '../../../../store/localization'
 const Access = () => {
   const [data, setData] = useState([])
   const [selectedRow, setSelectedRow] = useState({})
@@ -28,12 +30,13 @@ const Access = () => {
     setSelectedRow({})
     getData()
   }
+  const language = useSelector(selectLanguagePack)
 
   return (
     <div>
       <div className={styles['create']}>
         <button onClick={() => setCurrentModal(ModalTypes.Create)}>
-          Create
+          {language.create}
         </button>
       </div>
 

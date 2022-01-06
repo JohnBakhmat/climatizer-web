@@ -1,12 +1,14 @@
 import styles from './Navbar.module.sass'
 import NavbarLink from './NavbarLink'
 import { selectUserName } from '../../../store/user'
-import store from '../../../store'
+import { selectLanguagePack } from '../../../store/localization'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import LanguagePicker from './LanguagePicker'
 
 const Navbar = () => {
+  const language = useSelector(selectLanguagePack)
+
   const userName = useSelector(selectUserName)
   const location = useLocation()
   const isShown = location.pathname.includes('/admin')
@@ -26,20 +28,21 @@ const Navbar = () => {
       <div className={styles['navbar-body']}>
         <NavbarLink
           to='/admin'
-          label={'Overview'}
+          label={language.overview}
           icon={<i className='fas fa-home' />}
         />
         <NavbarLink
           to='/admin/statistics'
-          label={'Statistics'}
+          label={language.statistics}
           icon={<i className='fas fa-chart-pie' />}
         />
         <NavbarLink
           to='/admin/database'
-          label={'Database'}
+          label={language.database}
           icon={<i className='fas fa-database' />}
         />
       </div>
+      <LanguagePicker />
     </div>
   )
 }

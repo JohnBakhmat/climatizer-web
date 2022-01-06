@@ -1,5 +1,7 @@
 import React, { Dispatch, useReducer } from 'react'
+import { useSelector } from 'react-redux'
 import { ModalTypes } from '../../../pages/Admin/ModalTypes'
+import { selectLanguagePack } from '../../../store/localization'
 import convertDataToJSX from '../../../utils/tableConverter'
 import { Input } from '../../Auth/Input'
 import { Checkbox } from '../Table/Checkbox'
@@ -21,6 +23,8 @@ const Form = (props: Props) => {
     props.onSubmit(dataState)
   }
   const [dataState, dispatch] = useReducer(reducer, props.data)
+  const language = useSelector(selectLanguagePack)
+
   return (
     <form className={styles['form']} onSubmit={handleSubmit}>
       <h1>{props.title}</h1>
@@ -28,7 +32,7 @@ const Form = (props: Props) => {
         convertDataToJSX(item, props.modal, dispatch)
       )}
       <button className={styles['button-submit']} type='submit'>
-        Submit
+        {language.submit}
       </button>
     </form>
   )

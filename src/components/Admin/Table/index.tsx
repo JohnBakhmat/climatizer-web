@@ -1,5 +1,7 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { ModalTypes } from '../../../pages/Admin/ModalTypes'
+import { selectLanguagePack } from '../../../store/localization'
 import styles from './index.module.sass'
 function stringify(data: any): any {
   if (/true/i.test(data))
@@ -28,7 +30,7 @@ const Table = (props: any) => {
   const handleButtonClick = (object: Object, modal: ModalTypes) => {
     props.onSelect(object, modal)
   }
-
+  const language = useSelector(selectLanguagePack)
   const getRowsData = () => {
     const items = props.data
     const keys = getKeys()
@@ -41,13 +43,13 @@ const Table = (props: any) => {
               onClick={() => handleButtonClick(row, ModalTypes.Edit)}
               className={`${styles['button']} ${styles['edit']}`}
             >
-              Edit
+              {language.edit}
             </button>
             <button
               onClick={() => handleButtonClick(row, ModalTypes.Delete)}
               className={`${styles['button']} ${styles['delete']}`}
             >
-              Delete
+              {language.delete}
             </button>
           </td>
         )}

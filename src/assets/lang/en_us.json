@@ -1,0 +1,18 @@
+{
+  "access": "Access",
+  "buildings": "Buildings",
+  "devices": "Devices",
+  "climateSettings": "Climate Settings",
+  "presets": "Presets",
+  "rooms": "Rooms",
+  "requests": "Requests",
+
+  "overview": "Overview",
+  "statistics": "Statistics",
+  "database": "Database",
+  "create": "Create",
+  "edit": "Edit",
+  "delete": "Delete",
+  "submit": "Submit",
+  "apply": "Apply this"
+}

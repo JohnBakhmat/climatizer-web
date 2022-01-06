@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Form from '../../../../components/Admin/Form'
 import { put } from '../../../../services/Admin/access'
+import { selectLanguagePack } from '../../../../store/localization'
 import { ModalTypes } from '../../ModalTypes'
 import styles from './style.module.sass'
 
@@ -14,12 +16,14 @@ const Edit = (props: PropTypes) => {
     })
   }
 
+  const language = useSelector(selectLanguagePack)
+
   return (
     <div className={styles['edit']}>
       <Form
         data={props.data}
         modal={ModalTypes.Edit}
-        title={'Edit'}
+        title={language.edit}
         onSubmit={handelSubmit}
       />
     </div>

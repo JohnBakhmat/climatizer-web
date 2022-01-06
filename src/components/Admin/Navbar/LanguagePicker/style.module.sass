@@ -1,0 +1,21 @@
+.wrap
+	display: flex
+	left: 50%
+	transform: translateX(-50%)
+	bottom: 10px
+	position: absolute
+	align-items: center
+
+	button
+		// border: 1px solid black
+		padding: 5px 30px
+
+		&:first-child
+			border-radius: 10px 0 0 10px
+		&:last-child
+			border-radius: 0 10px 10px 0
+.selected
+	background: #99ffaf
+
+.diselected
+	background: white

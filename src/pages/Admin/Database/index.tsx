@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import {
   applyBackup,
   getBackups,
 } from '../../../services/Admin/database/backups'
+import { selectLanguagePack } from '../../../store/localization'
 import styles from './index.module.sass'
 const Database = () => {
+  const language = useSelector(selectLanguagePack)
   const [backups, setBackups] = useState([])
 
   useEffect(() => {
@@ -27,7 +30,7 @@ const Database = () => {
             <li>
               {backup}
               <button onClick={() => handleButtonClick(backup)}>
-                Apply this
+                {language.apply}
               </button>
             </li>
           )

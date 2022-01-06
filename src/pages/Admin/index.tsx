@@ -7,20 +7,23 @@ import DeviceImg from '../../assets/Devices.png'
 import ClimateSettingsImg from '../../assets/ClimateSettings_1.svg'
 import RoomImg from '../../assets/Rooms.png'
 import PresetImg from '../../assets/Presets.svg'
+import { useSelector } from 'react-redux'
+import { selectLanguagePack } from '../../store/localization'
 
 const Admin = () => {
+  const language = useSelector(selectLanguagePack)
   const card = [
-    new CardType(AccessImg, 'Access', '/admin/access'),
-    new CardType(BuildingImg, 'Buildings', '/admin/building'),
-    new CardType(DeviceImg, 'Devices', '/admin/device'),
-    new CardType(RequestImg, 'Requests', '/admin/request'),
+    new CardType(AccessImg, language.access, '/admin/access'),
+    new CardType(BuildingImg, language.buildings, '/admin/building'),
+    new CardType(DeviceImg, language.devices, '/admin/device'),
+    new CardType(RequestImg, language.requests, '/admin/request'),
     new CardType(
       ClimateSettingsImg,
-      'Climate Settings',
+      language.climateSettings,
       '/admin/climate-settings'
     ),
-    new CardType(PresetImg, 'Presets', '/admin/presets'),
-    new CardType(RoomImg, 'Rooms', '/admin/rooms'),
+    new CardType(PresetImg, language.presets, '/admin/presets'),
+    new CardType(RoomImg, language.rooms, '/admin/rooms'),
   ]
   return (
     <div className={styles['wrapper']}>
